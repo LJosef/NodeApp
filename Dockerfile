@@ -3,8 +3,10 @@ FROM index.alauda.cn/library/node:4.4.4-onbuild
 RUN mkdir /webapp
 WORKDIR /webapp
 
+COPY package.json /webapp/
+RUN npm install
+
 COPY . /webapp/
-RUN npm install express
 
 EXPOSE 3000
 
